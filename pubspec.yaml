@@ -1,0 +1,50 @@
+name: everything_solver
+description: A new Flutter project.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.6 <4.0.0'
+
+dependency_overrides:
+  mhu_dart_commons:
+    path: ../mhu_dart_commons
+  mhu_flutter_commons:
+    path: ../mhu_flutter_commons
+  mhu_dart_proto:
+    path: ../mhu_dart_proto
+  mhu_dart_model:
+    path: ../mhu_dart_model
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  mhu_dart_commons: ^1.0.7
+  mhu_flutter_commons: ^1.0.4
+
+  cupertino_icons: ^1.0.2
+  flutter_native_splash: ^2.3.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  flutter_launcher_icons: ^0.13.1
+
+flutter:
+  uses-material-design: true
+
+mhu:
+  title: Everything Solver
+  short_title: Everything Solver
+  icon: https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsoutlined/done_all/default/48px.svg
+
+flutter_native_splash:
+  color: "#FFFFFF"
+  image: assets/splash.png
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/icon.png"
