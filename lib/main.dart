@@ -16,14 +16,11 @@ class Solved extends State {}
 class EverythingSolverApp extends StatelessWidget {
   EverythingSolverApp({super.key});
 
-  final ui = FlcUi.create();
-
   final state = ValueNotifier<State>(Initial());
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      navigatorKey: ui.nav,
       home: ScaffoldParts(
         title: const Text("Everything Solver"),
         body: flcTicker((tickers) {
@@ -31,6 +28,12 @@ class EverythingSolverApp extends StatelessWidget {
             duration: const Duration(seconds: 3),
             vsync: tickers,
           );
+          appLifecycleStateSingleton.changes().listen((event) {
+            if (event == AppLifecycleState.paused) {
+              animationController.reset();
+              state.value = Initial();
+            }
+          });
           return ValueListenableBuilder(
             valueListenable: state,
             builder: (context, currentState, child) {
